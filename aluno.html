@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTAL DO ALUNO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>  
+        <div class="main-wrapper">
+    <header class="header-aluno">
+        <h1>Portal do Aluno</h1>
+    </header>
+
+    <main class="content-container">
+        <section class="card">
+            <h2><i class="icon"></i> Calculadora de Notas</h2>
+            <p>Insira suas notas abaixo para verificar sua situação acadêmica.</p>
+            
+            <div class="input-grid">
+                <input type="number" id="n1" placeholder="Nota 1" min="0" max="10">
+                <input type="number" id="n2" placeholder="Nota 2" min="0" max="10">
+                <input type="number" id="n3" placeholder="Nota 3" min="0" max="10">
+                <input type="number" id="n4" placeholder="Nota 4" min="0" max="10">
+            </div>
+
+            <button class="btn-calcular" onclick="calcularMedia()">CALCULAR MÉDIA</button>
+
+            <div id="resultadoFinal" class="resultado-box"></div>
+        </section>
+    </main>
+    <script>
+function calcularMedia() {
+    let n1 = Number(document.getElementById("n1").value);
+    let n2 = Number(document.getElementById("n2").value);
+    let n3 = Number(document.getElementById("n3").value);
+    let n4 = Number(document.getElementById("n4").value);
+
+    let media = (n1 + n2 + n3 + n4) / 4;
+    let resultado = "";
+    let cor = "";
+
+    if (media >= 7) {
+        resultado = "Aprovado :)";
+        cor = "#28a745"; 
+    } else if (media >= 5) {
+        resultado = "Recuperação :|";
+        cor = "#ffc107"; 
+    } else {
+        resultado = "Reprovado :(";
+        cor = "#dc3545"; 
+    }
+
+    let elementoResultado = document.getElementById("resultadoFinal");
+    elementoResultado.innerHTML = `Média: ${media.toFixed(2)} - ${resultado}`;
+    elementoResultado.style.color = cor; 
+}
+</script>
+
+    <footer class="footer-externo">
+        <small>Direitos autorais © 2026 SENAC. Todos os direitos reservados</small>
+    </footer>
+</div>
+</body>
+</html>

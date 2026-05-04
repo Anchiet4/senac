@@ -1,0 +1,332 @@
+
+        header {
+            width: 100%;
+        }
+        .top-bar {
+            background-color: #00468c; 
+            color: rgb(248, 248, 248);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .top-bar-links a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .top-bar-social a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 16px;
+        }
+
+        
+        .main-header {
+            background-color: rgb(255, 255, 255);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 100px;
+            width: auto;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav a {
+            color: #00468c;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+
+     
+        .fa-chevron-down {
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+       
+        .portal-search-group {
+            display: flex;
+            align-items: center;
+            gap: 10px; 
+            margin-left: 20px;
+            border-left: 1px solid #ffffff; 
+            padding-left: 20px;
+        }
+
+        .flag-br {
+            height: 18px;
+            width: auto;
+        }
+
+        .search-icon {
+            color: #00468c;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #00468c;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        
+        @media (max-width: 900px) {
+            .paginainicial {
+                width: 120%;
+                padding: 15px;
+            }
+        }
+
+        #resultadoFinal { margin-top: 25px; padding: 15px; border-radius: 5px; text-align: center; }
+        .link-senac { display: inline-block; margin-top: 20px; color: #00468c; text-decoration: none; font-weight: bold; }
+        
+       .footer-externo {
+         width: 100%;
+         text-align: center;
+         padding: 20px 0;
+         color: white;
+}
+
+      .footer-externo small {
+        font-size: 0.85rem;
+        opacity: 0.8; 
+}
+
+.img-curso {
+    width: 300px;       
+    height: 300px;      
+    object-fit: cover;  
+    border-radius: 4px; 
+    transition: transform 0.3s; 
+}
+
+.cursos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.curso-card {
+    background: rgb(255, 255, 255);
+    width: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.curso-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+
+.curso-info {
+    padding: 15px;
+}
+
+.curso-categoria {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.curso-titulo {
+    font-size: 16px;
+    color: #2c3e50;
+    margin: 0 0 15px 0;
+    height: 40px;
+}
+
+.cor-gestao { color: #2ecc71; }
+.cor-logistica { color: #e67e22; }
+.cor-beleza { color: #e91e63; }
+.cor-seguranca { color: #3498db; }
+
+.curso-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #ffffff;
+    padding-top: 10px;
+}
+
+.duracao {
+    font-size: 13px;
+    color: #555;
+}
+
+.gratuito {
+    font-weight: bold;
+    color: #0056b3;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+}
+.carrossel {
+  position: relative; 
+  width: 100%;
+  max-width: none;
+  overflow: hidden;
+}
+
+.carrossel-trilho {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carrossel-trilho img {
+  width: 100%; 
+  flex-shrink: 0;
+}
+
+
+.seta {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.seta:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.anterior { left: 10px; }
+.proxima { right: 10px; }
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4; 
+    display: flex;
+    flex-direction: column;
+}
+
+.header-aluno {
+    background-color: #004587; 
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.content-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgb(0, 0, 0);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    color: #000000;
+    margin-bottom: 10px;
+}
+h3 {
+    font-size: 30px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+    
+}
+p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+}
+
+.input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+    font-size: 1em;
+}
+
+
+.btn-calcular {
+    background-color: #004587;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.resultado-box {
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1.1em;
+    min-height: 50px;
+}
+
+.footer-externo {
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+}

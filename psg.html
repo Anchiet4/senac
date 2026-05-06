@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa Senac de Gratuidade - Calculadora</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        
+        body { display: flex; min-height: 100vh; background-color: #fff; overflow-x: hidden; }
+
+        
+        .banner {
+            flex: 1.2;
+            background: #e91e63; 
+            background-image: linear-gradient(rgba(233, 30, 99, 0.7), rgba(233, 30, 99, 0.7)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            color: white;
+            text-align: center;
+        }
+
+        .tag-cursos { background: #00bcd4; padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 13px; margin-bottom: 15px; }
+        .banner h1 { font-size: 32px; margin-bottom: 25px; line-height: 1.2; }
+        
+        .card-numeros {
+            background: #3f51b5; 
+            padding: 40px 30px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 350px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .card-numeros h2 { font-size: 65px; margin: 0; }
+        .card-numeros p { font-size: 22px; font-weight: bold; opacity: 0.9; }
+        .card-numeros::after { content: ''; position: absolute; bottom: -15px; right: 30px; border-left: 15px solid transparent; border-top: 15px solid #3f51b5; }
+
+        .btn-inscreva {
+            margin-top: 40px;
+            background: #fbc02d; 
+            color: #333;
+            padding: 18px 45px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        
+        .calculator-area {
+            flex: 1;
+            padding: 50px;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calculator-area h3 { font-size: 28px; color: #333; margin-bottom: 15px; }
+        .texto-azul { color: #00bcd4; font-weight: bold; font-size: 14px; margin-bottom: 30px; line-height: 1.5; }
+
+        .grid-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 480px;
+        }
+
+        .input-item {
+            background: #f0f0f0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            padding: 12px 15px;
+        }
+
+        .input-item span.rs { color: #00bcd4; font-weight: bold; margin-right: 5px; font-size: 16px; }
+        .input-item input {
+            background: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .mais { color: #ccc; font-size: 20px; margin-left: 5px; }
+
+        .total-label { margin-top: 30px; color: #00bcd4; font-weight: bold; font-size: 13px; }
+        .total-display {
+            background: #f0f0f0;
+            padding: 18px;
+            border-radius: 12px;
+            margin-top: 5px;
+            width: 100%;
+            max-width: 480px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #00796b;
+        }
+
+       
+        .box-resultado {
+            margin-top: 30px;
+            border: 2px solid #2196f3;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            max-width: 480px;
+            display: none; 
+        }
+
+        .msg-status { color: #1976d2; font-size: 24px; font-weight: bold; margin-bottom: 15px; }
+        
+        .btn-amarelo-final {
+            display: block;
+            background: #fbc02d;
+            color: #333;
+            padding: 18px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            text-align: center;
+        }
+
+       
+        @media (max-width: 900px) {
+            body { flex-direction: column; }
+            .banner { padding: 60px 20px; }
+            .calculator-area { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <div class="tag-cursos">CURSOS GRÁTIS</div>
+        <h1>Programa Senac de Gratuidade</h1>
+        <div class="card-numeros">
+            <h2>799.903</h2>
+            <p>matrículas em 12 meses</p>
+        </div>
+        <a href="#" class="btn-inscreva">INSCREVA-SE &nbsp; →</a>
+    </div>
+
+    <div class="calculator-area">
+        <h3>Veja se você pode se inscrever no PSG!</h3>
+        <p class="texto-azul">Apenas pessoas com renda familiar per capita até 2 salários-mínimos podem participar. Calcule abaixo:</p>
+
+        <div class="grid-inputs">
+            <div class="input-item"><span class="rs">R$</span><input type="number" class="renda-valor" placeholder="0,00" oninput="calcular()"><span class="mais">+</span></div>
+            <div class="input-item"><span class="rs">R$</span><input type="number" class="renda-valor" placeholder="0,00" oninput="calcular()"><span class="mais">+</span></div>
+            <div class="input-item"><span class="rs">R$</span><input type="number" class="renda-valor" placeholder="0,00" oninput="calcular()"><span class="mais">+</span></div>
+            <div class="input-item"><span class="rs">R$</span><input type="number" class="renda-valor" placeholder="0,00" oninput="calcular()"><span class="mais">+</span></div>
+            <div class="input-item"><span class="rs">R$</span><input type="number" class="renda-valor" placeholder="0,00" oninput="calcular()"><span class="mais">+</span></div>
+            <div class="input-item"><span class="rs">R$</span><input type="number" class="renda-valor" placeholder="0,00" oninput="calcular()"><span class="mais">+</span></div>
+        </div>
+
+        <p class="total-label">Total</p>
+        <div class="total-display"><span id="resultado-valor">0.00</span></div>
+
+        <div class="box-resultado" id="feedback-box">
+            <div id="status-msg" class="msg-status">Sim, você pode!</div>
+            <a href="https://SEULINKAQUI.com" id="btn-final" class="btn-amarelo-final">VEJA COMO SE INSCREVER!</a>
+        </div>
+    </div>
+
+    <script>
+        function calcular() {
+            const campos = document.querySelectorAll('.renda-valor');
+            const display = document.getElementById('resultado-valor');
+            const feedback = document.getElementById('feedback-box');
+            const statusMsg = document.getElementById('status-msg');
+            const btnFinal = document.getElementById('btn-final');
+
+            const limiteSalario = 3028.00; 
+            
+            let somaTotal = 0;
+            let pessoasContadas = 0;
+
+            campos.forEach(campo => {
+                let valor = parseFloat(campo.value);
+                if (!isNaN(valor) && valor > 0) {
+                    somaTotal += valor;
+                    pessoasContadas++; 
+                }
+            });
+
+            
+            let divisor = pessoasContadas > 0 ? pessoasContadas : 1;
+            let resultadoFinal = somaTotal / divisor;
+
+            display.innerText = resultadoFinal.toFixed(2);
+
+            if (somaTotal > 0) {
+                feedback.style.display = 'block';
+                
+                if (resultadoFinal <= limiteSalario) {
+        
+                    statusMsg.innerText = "Sim, você pode!";
+                    statusMsg.style.color = "#1976d2";
+                    feedback.style.borderColor = "#2196f3";
+                    btnFinal.style.display = "block";
+                } else {
+                    
+                    statusMsg.innerText = "Você não está habilitado(a).";
+                    statusMsg.style.color = "#d32f2f";
+                    feedback.style.borderColor = "#d32f2f";
+                    btnFinal.style.display = "none";
+                }
+            } else {
+                feedback.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
